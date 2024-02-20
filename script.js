@@ -98,9 +98,30 @@ var finances = [
 
 // var results = document.writeln('Total Months:',finances.length);
 
-  var answer = 0;
-finances.forEach(item => {answer += item[1] });
- document.writeln('Total:', '' ,'$',answer)
+//   var answer = 0;
+// finances.forEach(item => {answer += item[1] });
+//  document.writeln('Total:', '' ,'$',answer)
 
+    
+    // var sum = finances.reduce((acc, curr) =>   acc + curr[1], 0 )
+    //    var average = sum/(finances.length);
+
+    // document.writeln('Average Change:',average)
+    // console.log(average)
+
+
+var changes = []
+for (let i = 1; i < finances.length; i++) {
+
+  changes.push(finances[i][1] - finances[i-1][1])
+}
+
+var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
+
+  var averagechange = sumofchanges/changes.length;
+  var averagechange = averagechange.toFixed(2);
+
+document.writeln('Average Change:',averagechange)
+console.log(averagechange)
 
 
