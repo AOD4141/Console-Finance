@@ -96,4 +96,11 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-var results = document.writeln('Total Months:',finances.length);
+// var results = document.writeln('Total Months:',finances.length);
+
+  var answer = 0;
+finances.forEach(item => {answer += item[1] });
+ document.writeln('Total:', '' ,'$',answer)
+
+
+
