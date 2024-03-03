@@ -1,15 +1,8 @@
-// var myText;
 
-// myText = 99;
-// myText = 4*20;
-
-// console.log(myText)
-
-// document.writeln(myText)
 
 var finances = [
-  ['Jan-2010', 867884],
-  ['Feb-2010', 984655],
+  ['Jan-2010', 867884],  
+  ['Feb-2010', 984655], 
   ['Mar-2010', 322013],
   ['Apr-2010', -69417],
   ['May-2010', 310503],
@@ -96,32 +89,53 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+// // The total number of months included in the dataset
 // var results = document.writeln('Total Months:',finances.length);
+ 
+// //The net total amount of Profit/Losses over the entire period.
+//  var answer = 0;
+//  finances.forEach(item => {answer += item[1] });
+//  document.writeln('Total Net Profit:', '' ,'$',answer)
 
-//   var answer = 0;
-// finances.forEach(item => {answer += item[1] });
-//  document.writeln('Total:', '' ,'$',answer)
+//The average of the **changes** in Profit/Losses over the entire period.
+    // var changes = []
+    // for (let i = 1; i < finances.length; i++) {
+      
+    //   changes.push(finances[i][1] - finances[i-1][1])
+    //    }
+      
+    //   var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
+      
+      
+    //    var averagechange = sumofchanges/changes.length;
+    //    var averagechange = averagechange.toFixed(2);
+      
+    //   document.writeln('Average Change:',averagechange)
 
-    
-    // var sum = finances.reduce((acc, curr) =>   acc + curr[1], 0 )
-    //    var average = sum/(finances.length);
+//The greatest increase in Profit/Losses (date and amount) over the entire period
 
-    // document.writeln('Average Change:',average)
-    // console.log(average)
-
-
-var changes = []
-for (let i = 1; i < finances.length; i++) {
-
-  changes.push(finances[i][1] - finances[i-1][1])
+  var greatestIncrease = [];
+  for(var i = 0; i <finances.length-1; i++){changes.push(finances[i][1] - finances[i-1][1])}
+ {
+ for (let j = i +1; j < finances.length; j++){
+ var increase = parseInt (finances[j]) - parseInt(finances[i]);
+if (increase > greatestIncrease) {
+ greatestIncrease = increase;
+  }
+  }
 }
 
-var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
+ document.writeln(greatestIncrease);
 
-  var averagechange = sumofchanges/changes.length;
-  var averagechange = averagechange.toFixed(2);
+      
 
-document.writeln('Average Change:',averagechange)
-console.log(averagechange)
+
+
+
+
+
+
+
+
 
 
