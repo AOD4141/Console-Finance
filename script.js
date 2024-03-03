@@ -125,7 +125,7 @@ if (increase > greatestIncrease) {
   }
 }
 
- document.writeln(greatestIncrease);
+ document.writeln('Greatest Increase:',greatestIncrease);
 
       
 
