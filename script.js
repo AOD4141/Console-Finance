@@ -90,27 +90,27 @@ var finances = [
 ];
 
 // // The total number of months included in the dataset
-// var results = document.writeln('Total Months:',finances.length);
+ var results = document.writeln('Total Months:',finances.length);
  
-// //The net total amount of Profit/Losses over the entire period.
-//  var answer = 0;
-//  finances.forEach(item => {answer += item[1] });
-//  document.writeln('Total Net Profit:', '' ,'$',answer)
+ //The net total amount of Profit/Losses over the entire period.
+ var answer = 0;
+  finances.forEach(item => {answer += item[1] });
+ document.writeln('Total Net Profit:', '' ,'$',answer)
 
 //The average of the **changes** in Profit/Losses over the entire period.
-    // var changes = []
-    // for (let i = 1; i < finances.length; i++) {
+   var changes = []
+   for (let i = 1; i < finances.length; i++) {
       
-    //   changes.push(finances[i][1] - finances[i-1][1])
-    //    }
+      changes.push(finances[i][1] - finances[i-1][1])
+       }
       
-    //   var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
+      var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
       
       
-    //    var averagechange = sumofchanges/changes.length;
-    //    var averagechange = averagechange.toFixed(2);
+      var averagechange = sumofchanges/changes.length;
+       var averagechange = averagechange.toFixed(2);
       
-    //   document.writeln('Average Change:',averagechange)
+      document.writeln('Average Change:',averagechange)
 
 //The greatest increase in Profit/Losses (date and amount) over the entire period
 
