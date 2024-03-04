@@ -103,36 +103,54 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-  // Question 1- The total number of months included in the dataset
-     var results = document.writeln('<br>Total Months:',' ',' ' ,finances.length)
+// Question 1- The total number of months included in the dataset
+
+      //step-1- use finances.length to get the total number of months in the dataset
+
+      var results = document.writeln('<br>Total Months:',' ',' ' ,finances.length)
  
-  //  Question 2-The net total amount of Profit/Losses over the entire period.
+//  Question 2-The net total amount of Profit/Losses over the entire period.
+
+      //step-1- Initialise the total to be zero
+
       var answer = 0;
+
+      //step-2- use the .forEach function to loop through the arrays staring from index one
+
       finances.forEach(item => {answer += item[1] });
+
       document.writeln('<br>Total:', '  ' ,'$',answer)
 
-  // Question 3-The average of the **changes** in Profit/Losses over the entire period.
+// Question 3-The average of the **changes** in Profit/Losses over the entire period.
 
-      // step 1-create an empty array for the .push function that will account for results of changes
-     var changes = []
+      // step -1- create an empty array for the .push function to add elements to the end of an array
+      var changes = []
       for (let i = 1; i < finances.length; i++) {
       
       changes.push(finances[i][1] - finances[i-1][1])
        }
       
+      //step-2- use the .reduce function to return a single value from the dataset
        
       var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
-      
+
+      // step-3- solve for the average change using .length function to account for average of the whole set
+
       var averagechange = sumofchanges/changes.length;
+
+      //step-4- round-up to two decimal point using .toFixed method
+
       var averagechange = averagechange.toFixed(2);
       
       document.writeln('<br>Average Change:',' ',' ', averagechange) 
 
-  // Question 4-The greatest increase in Profit/Losses (date and amount) over the entire period
+// Question 4-The greatest increase in Profit/Losses (date and amount) over the entire period
+     
+      //step -1- create an empty array for the .push function to add elements to the end of an array
 
       let differences = [];
 
-  //  start with i = 1 to start comparison from the second month
+      // step-2- start with i = 1 to start comparison from index three
       for (let i = 1; i < finances.length; i++) {
       let difference = finances[i][1] - finances[i - 1][1];
       differences.push(difference);
@@ -142,7 +160,7 @@ var finances = [
       let greatestIncreaseMonth;
       
 
-  //  Initialise value for loops starting at the first element in differences array
+      // step-3- Initialise value for loops starting at index zero in the newly created differences array
       greatestIncrease = differences[0];
       
 
@@ -156,31 +174,32 @@ var finances = [
       document.writeln(`<br> Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})`);
       
 
-  // Question 5-The greatest decrease in Profit/Losses (date and amount) over the entire period.
+// Question 5-The greatest decrease in Profit/Losses (date and amount) over the entire period.
 
+     //step -1- create an empty array for the .push function to add elements to the end of an array
 
-     var netChanges = [];
+      var netChanges = [];
 
-//    start with i = 1 to start comparison from the second month
-    for (let i = 1; i < finances.length; i++) {
-    var netChange = finances[i][1] - finances[i - 1][1];
-    netChanges.push(netChange);
-    }
+      // step-2-   start with i = 1 to start comparison from index three
+      for (let i = 1; i < finances.length; i++) {
+      var netChange = finances[i][1] - finances[i - 1][1];
+      netChanges.push(netChange);
+      }
 
-    var greatestDecrease;
-    var greatestDecreaseMonth;
+      var greatestDecrease;
+      var greatestDecreaseMonth;
 
-// //  Initialise value for loops starting at the first element in differences array
-     greatestDecrease = netChanges[0];
+      // step-3-  Initialise value for loops starting at index zero in the newly created differences array
+      greatestDecrease = netChanges[0];
 
-     for (let netChange of netChanges) {
+      for (let netChange of netChanges) {
       if (greatestDecrease > netChange) {
       greatestDecrease = netChange;
       greatestDecreaseMonth = finances[netChanges.indexOf(netChange) + 1][0];
       }
       }
 
-    document.writeln(`<br> Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`);
+      document.writeln(`<br> Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`);
 
 </script>
 </html>
