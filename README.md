@@ -9,7 +9,7 @@ The purpose is to create code that analyse financial records using a financial d
 
 ## Features
 
-Javascript functions, Total Months, Total, Average Change, Greatest Increase and Greatest Decrease
+Javascript functions and methods, computed Total Months, Total, Average Change, Greatest Increase (month and year) Profits/Losses and Greatest Decrease (month and year) Profits/Losses
 
 
 ## Link to page
