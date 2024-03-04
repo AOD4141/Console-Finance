@@ -104,26 +104,29 @@ var finances = [
 ];
 
   // Question 1- The total number of months included in the dataset
-     var results = document.writeln('<br>Total Months:', finances.length)
+     var results = document.writeln('<br>Total Months:',' ',' ' ,finances.length)
  
   //  Question 2-The net total amount of Profit/Losses over the entire period.
       var answer = 0;
       finances.forEach(item => {answer += item[1] });
-      document.writeln('<br>Total:', '' ,'$',answer)
+      document.writeln('<br>Total:', '  ' ,'$',answer)
 
   // Question 3-The average of the **changes** in Profit/Losses over the entire period.
-      var changes = []
+
+      // step 1-create an empty array for the .push function that will account for results of changes
+     var changes = []
       for (let i = 1; i < finances.length; i++) {
       
       changes.push(finances[i][1] - finances[i-1][1])
        }
       
+       
       var sumofchanges = changes.reduce((acc, curr) =>   acc + curr, 0)
       
       var averagechange = sumofchanges/changes.length;
       var averagechange = averagechange.toFixed(2);
       
-      document.writeln('<br>Average Change:', averagechange) 
+      document.writeln('<br>Average Change:',' ',' ', averagechange) 
 
   // Question 4-The greatest increase in Profit/Losses (date and amount) over the entire period
 
@@ -137,9 +140,11 @@ var finances = [
 
       let greatestIncrease;
       let greatestIncreaseMonth;
+      
 
   //  Initialise value for loops starting at the first element in differences array
       greatestIncrease = differences[0];
+      
 
       for (let difference of differences) {
       if (greatestIncrease < difference) {
@@ -148,11 +153,34 @@ var finances = [
       }
       }
 
-      document.writeln(`<br> Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} (£${greatestIncrease})`);
+      document.writeln(`<br> Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})`);
+      
+
+  // Question 5-The greatest decrease in Profit/Losses (date and amount) over the entire period.
 
 
+     var netChanges = [];
 
+//    start with i = 1 to start comparison from the second month
+    for (let i = 1; i < finances.length; i++) {
+    var netChange = finances[i][1] - finances[i - 1][1];
+    netChanges.push(netChange);
+    }
+
+    var greatestDecrease;
+    var greatestDecreaseMonth;
+
+// //  Initialise value for loops starting at the first element in differences array
+     greatestDecrease = netChanges[0];
+
+     for (let netChange of netChanges) {
+      if (greatestDecrease > netChange) {
+      greatestDecrease = netChange;
+      greatestDecreaseMonth = finances[netChanges.indexOf(netChange) + 1][0];
+      }
+      }
+
+    document.writeln(`<br> Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`);
 
 </script>
-
 </html>
