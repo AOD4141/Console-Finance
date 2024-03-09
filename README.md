@@ -12,6 +12,11 @@ The purpose is to create code that analyse financial records using a financial d
 Javascript functions and methods, computed Total Months, Total, Average Change, Greatest Increase (month and year) Profits/Losses and Greatest Decrease (month and year) Profits/Losses
 
 
+## Screenshot of the results
+
+![alt text](image.png)
+
+
 ## Link to page
 
 https://aod4141.github.io/Console-Finance/
